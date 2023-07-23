@@ -1,0 +1,42 @@
+﻿<Window x:Class="SimpleChart.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleChart"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Canvas x:Name="chartCanvas" Margin="5" MouseDown="chartCanvas_MouseDown">
+            <Line x:Name="x_axis" Stroke="Black" StrokeThickness="3" X1="40" Y1="280" X2="480" Y2="280" StrokeStartLineCap="Round"/>
+            <Line x:Name="y_axis" Stroke="Black" StrokeThickness="3" X1="40" Y1="280" X2="40" Y2="30" StrokeStartLineCap="Round"/>
+            <Path x:Name="x_axisArrow" Fill="Black">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="480,276" IsClosed="True">
+                            <LineSegment Point="480,284"/>
+                            <LineSegment Point="490,280"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path x:Name="y_axisArrow" Fill="Black">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="36,30" IsClosed="True">
+                            <LineSegment Point="44,30"/>
+                            <LineSegment Point="40,20"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <TextBlock x:Name="x_label" Text="x" Canvas.Left="477" Canvas.Top="279"
+                       FontFamily="Arial" FontStyle="Italic" FontSize="20"/>
+            <TextBlock x:Name="y_label" Text="y" Canvas.Left="20" Canvas.Top="4"
+                       FontFamily="Arial" FontStyle="Italic" FontSize="20"/>
+            <TextBlock x:Name="o_label" Text="o" Canvas.Left="20" Canvas.Top="272"
+                       FontFamily="Arial" FontStyle="Italic" FontSize="20"/>
+            <Line x:Name="y_scale1" Stroke="Black" StrokeThickness="1" X1="40" Y1="270" X2="44" Y2="270" StrokeEndLineCap="Triangle"/>
+        </Canvas>
+    </Grid>
+</Window>

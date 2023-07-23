@@ -1,0 +1,67 @@
+﻿<Window x:Class="CircularGauge.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CircularGauge"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="440" Width="480">
+    <Grid>
+        <Canvas x:Name="gaugeCanvas" Margin="20" MouseDown="Canvas_MouseDown">
+            <Path StrokeThickness="30" Width="420" Height="400" StrokeStartLineCap="Round">
+                <Path.Data>
+                    <PathGeometry Figures="M 0,200 A 200,200 0 0 1 58.57864,58.57864"/>
+                </Path.Data>
+                <Path.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0" Color="Green"/>
+                            <GradientStop Offset="1.0" Color="Yellow"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Path.Stroke>
+            </Path>
+            <Path StrokeThickness="30" Width="420" Height="400">
+                <Path.Data>
+                    <PathGeometry Figures="M 58.57864,58.57864 A 200,200 0 0 1 341.42136,58.57864" />
+                </Path.Data>
+                <Path.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.4" Color="Green"/>
+                            <GradientStop Offset="0.9" Color="Red"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Path.Stroke>
+            </Path>
+            <Path  StrokeThickness="30" Width="420" Height="400" StrokeEndLineCap="Round">
+                <Path.Data>
+                    <PathGeometry Figures="M 341.42136,58.57864 A 200,200 0 0 1 400,200" />
+                </Path.Data>
+                <Path.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStop Offset="0.4" Color="Red"/>
+                            <GradientStop Offset="0.9" Color="DarkRed"/>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Path.Stroke>
+            </Path>
+            <Path x:Name="indicatorPin" Fill="Orange">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathGeometry.Figures>
+                            <PathFigure StartPoint="200,195" IsClosed="True">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="20,200"/>
+                                    <LineSegment Point="200,205"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <TextBlock x:Name="currentValueTxtBlock" FontSize="20" Canvas.Left="140" Canvas.Top="150"/>
+        </Canvas>
+    </Grid>
+</Window>
